@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0,
+          10.1
+        ]
+      },
+      "properties": {
+        "name": "Moja nazwa punktu"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100,
+          10.1
+        ]
+      },
+      "properties": {
+        "name": "Moja nazwa punktu 2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100,
+          10.1
+        ]
+      },
+      "properties": {
+        "name": "Moja nazwa punktu 3"
+      }
+    }
+
+  ]
+}

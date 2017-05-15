@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="test.css" media="screen">
+    <script src="polymaps.js"></script>
+    <script>
+        function configureFeatures(e) {
+            for (var i = 0; i < e.features.length; i++) {
+                var feature = e.features[i];
+                feature.element.setAttribute("feat_name", feature.data.properties.name);
+                feature.element.setAttribute("class", "pub_point");
+                feature.element.setAttribute("r", "15");
+
+                feature.element.addEventListener("click", function(e){
+                    clickListener(this,e)
+                }, false);
+
+            }        }
+
+        function clickListener(a,e) {
+            alert(a.getAttribute("feat_name"));
+        }
+
+        function go() {
+            var po = org.polymaps;
+
+            var map = po.map()
+                .container(document.getElementById("map").appendChild(po.svg("svg")))
+                .zoomRange([0, 4])
+                .zoom(2)
+                .center({"lat":0,"lon":0})
+                .add(po.image().url("img3/{Z}/{X}/{Y}.png"))
+                .add(po.interact())
+                .add(po.geoJson().url("geo.json").id("xxxx").on("load",configureFeatures));
+        };
+    </script>
+</head>
+<body onload="go()">
+<div id="map"></div>
+</body>
+</html>
